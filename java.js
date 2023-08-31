@@ -45,7 +45,7 @@ function btnanswer() {
         q += 1;
     } 
     else if(shanswer.value == false){
-        shresult.innerHTML = '!ตอบคําถาม!';
+        shresult.innerHTML = '!กรุณาตอบคําถาม';
         shresult.style.color = 'yellow';
         shanswer.value = '';
     }
