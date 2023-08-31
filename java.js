@@ -29,8 +29,9 @@ function start() {
     q = 0;
     score = 0;
     shquestion.innerHTML = q;
-    showscore.innerHTML = score;
+    shscore.innerHTML = score;
     shanswer.value = '';
+    shresult.innerHTML = null;
 }
 
 function btnanswer() {
@@ -41,12 +42,19 @@ function btnanswer() {
         score += 1;
         shscore.innerHTML = score;
         shanswer.value = '';
-    } else {
+        q += 1;
+    } 
+    else if(shanswer.value == false){
+        shresult.innerHTML = '!ตอบคําถาม!';
+        shresult.style.color = 'yellow';
+        shanswer.value = '';
+    }
+    else {
         shresult.innerHTML = 'ไม่ถูกต้อง';
         shresult.style.color = 'red';
         shanswer.value = '';
+        q += 1;
     }
-   q += 1;
     random();
 }
 

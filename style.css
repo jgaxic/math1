@@ -12,6 +12,7 @@ h1{
     display: flex;
     justify-content: center;
     margin-top: 2em;
+    color: white;
 }
 .solve label{
     padding-left: 20px;
@@ -20,6 +21,7 @@ h1{
     display: flex;
     justify-content: center;
     margin-top: 2em;
+    color: white;
 }
 .equation label{
     padding-left: 2em;
@@ -31,14 +33,14 @@ h1{
 .comment{
     display: flex;
     justify-content: center;
-    margin-top: -10px;
+    padding-bottom: 20px;
 }
 .container{
     border-style: solid;
     border-radius: 5px;
     box-sizing: border-box;
     width: 500px;
-    background-color: aqua;
+    background-color: rgb(81, 31, 61);
 }
 .start{
     display: flex;
@@ -50,4 +52,5 @@ h1{
     justify-content: center;
     margin-left: -70em;
     margin-top: 20px;
+    color: white;
 }
