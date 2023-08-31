@@ -1,4 +1,53 @@
-body{
+h1{
+    text-align: center;
+}
+.equation{
+    margin-left: 10px;
+    
+}
+.container .point{
+   padding-left: 70em;
+}
+.solve{
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+}
+.solve label{
+    padding-left: 20px;
+}
+.equation{
+    display: flex;
+    justify-content: center;
+    margin-top: 2em;
+}
+.equation label{
+    padding-left: 2em;
+}
+.send{
+    display: flex;
+    justify-content: center;
+}
+.comment{
+    display: flex;
+    justify-content: center;
+    margin-top: -10px;
+}
+.container{
+    border-style: solid;
+    border-radius: 5px;
+    box-sizing: border-box;
+    width: 500px;
     background-color: aqua;
-  
+}
+.start{
+    display: flex;
+    justify-content: center ;
+    margin-top: 20px;
+}
+.point{
+    display: flex;
+    justify-content: center;
+    margin-left: -70em;
+    margin-top: 20px;
 }

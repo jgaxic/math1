@@ -1,152 +1,41 @@
 <!DOCTYPE html>
 <html lang="en">
-    <head>
-        <meta charset="UTF-8">
-        <meta name="viewport" content="width=device-width, initial-scale=1.0">
-        <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
-        <link rel="stylesheet" href="./style.css" />
-        <title>Math Game</title>
-    </head>
+ <head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css" rel="stylesheet" integrity="sha384-9ndCyUaIbzAi2FUVXJi0CjmCapSmO7SnpJef0486qhLnuZ2cdeRhO02iuK6FUUVM" crossorigin="anonymous">
+    <link rel="stylesheet" href="style.css" />
+    <title>Math Game</title>
+</head>
     <body>
-        <div class="container-fluid">
-            <div class="row" style="display: flex; justify-content: center;">
-                <div class="col-12 mt-4" style="text-align: center;">
-                    <h1>Math</h1>
+        <h1>เกมคณิตศาสตร์</h1>
+            <div class="container" >
+                <div class="start">
+                    <button type="button" class="btn btn-primary" onclick="start();">เริ่ม</button>
                 </div>
-                <div class="container">
-                    <div class="row">
-                        <div class="col-4 mt-2">
-                            <button type="button" class="btn btn-primary" style="width: 150px;" onclick="start();">start</button>
+                <div class="point">
+                    <label>คะแนน: <span id="score"></span>/<span id="question"></span></label>
+                </div>
+                        <div class="solve">
+                            <label><span id="number1"></span></label>
+                            <label><span id="mark"></span></label>
+                            <label><span id="number2"></span></label>
+                            <label>=</label>
+                            <label><input type="text"  style="text-align: center;"  id="answer" ></label>   
                         </div>
-                        <div class="col-8 mt-2" style="display: flex; justify-content: flex-end;">
-                            <label>คะแนน : <span id="score"></span>/<span id="kor"></span></label>
-                        </div>
-                                <div class="container">
-                                    <fieldset>
-                                        <div class="row proposition" style="text-align: center; margin-top: 5em;">
-                                            <div class="col-2">
-                                                <label><span id="number1"></span></label>
-                                            </div>
-                                            <div class="col-2">
-                                                <label><span id="mark"></span></label>
-                                            </div>
-                                            <div class="col-2">
-                                                <label><span id="number2"></span></label>
-                                            </div>
-                                            <div class="col-1">
-                                                <label>=</label>
-                                            </div>
-                                            <div class="col-4">
-                                                <input type="text" style="width: 100%; text-align: center;" id="answer" placeholder="ตอบ" />
-                                            </div>
-                                        </div>
-                                        <div class="row selected mt-2">
-                                            <div class="col-3" style="text-align: center;">
-                                                <label>ตัวเลือก</label>
-                                            </div>
-                                            <div class="col-2">
-                                                <input type="radio" name="choice" id="plus" value="+" onclick="radiomark('+');" />
-                                                <label>+</label>
-                                            </div>
-                                            <div class="col-2">
-                                                <input type="radio" name="choice" id="minus" value="-" onclick="radiomark('-');" />
-                                                <label>-</label>
-                                            </div>
-                                            <div class="col-2">
-                                                <input type="radio" name="choice" id="multiplied" value="*" onclick="radiomark('×');" />
-                                                <label>×</label>
-                                            </div>
-                                            <div class="col-2">
-                                                <input type="radio" name="choice" id="divide" value="/" onclick="radiomark('÷');" />
-                                                <label>÷</label>
-                                            </div>
-                                        </div>
-                                    </fieldset>
-                                </div>
-                                <div class="col-12 mt-2" style=" display: flex; justify-content: center;">
-                                    <button type="button" class="btn btn-success" style="font-size: 1.5rem; width: 200px; height: 50px; margin: 2em;" onclick="btnanswer();">ส่งคำตอบ</button>
-                                </div>
-                                <div class="container" style="text-align: center;">
-                                    
-                                        <label style="font-size: 3rem;"><span id="result"></span></label>
-                                    
-                                </div>
+                            <div class="equation">
+                                <label><input type="radio" name = "choice" id="plus" value="+" onclick="radiomark('+');" >+</label>
+                                <label><input type="radio" name = "choice" id="minus" value="-" onclick="radiomark('-');">-</label>
+                                <label><input type="radio" name = "choice" id="multiplied" value="*" onclick="radiomark('×');">×</label>
+                                <label><input type="radio" name = "choice" id="divide" value="/" onclick="radiomark('÷');" >÷</label>           
                             </div>
-                        </div>
-                    </div>
+                <div class="send">
+                    <button type="button" id = "send" class="btn btn-success" style="margin: 2em;" onclick="btnanswer();">คำตอบ</button>
                 </div>
-            </div>
-        </div>
+                <div class="comment">
+                    <label><span id="result"></span></label>
+                </div>
+            </div> 
     </body>
 </html>
-<script>
-    var showscore = document.getElementById('score'); 
-var showkor = document.getElementById('kor');
-var shownumber1 = document.getElementById('number1');
-var showmark = document.getElementById('mark');
-var shownumber2 = document.getElementById('number2');
-var showanswer = document.getElementById('answer');
-var showresult = document.getElementById('result');
-var showplus = document.getElementById('plus');
-showplus.checked = true;
-showmark.innerHTML = "+";
-var score = 0;
-var kor = 0;
-var number1 = 0;
-var number2 = 0;
-var total = 0;
-showscore.innerHTML = score;
-showkor.innerHTML = kor;
-
-function random() {
-    showkor.innerHTML = kor;
-    number1 = Math.floor(Math.random() * 11);
-    number2 = Math.floor(Math.random() * 11);
-    shownumber1.innerHTML = number1;
-    shownumber2.innerHTML = number2;
-}
-
-function start() {
-    random();
-    kor = 0;
-    score = 0;
-    showkor.innerHTML = kor;
-    showscore.innerHTML = score;
-    showanswer.value = '';
-}
-
-function btnanswer() {
-    checkmark();
-    if (total == showanswer.value) {
-        showresult.innerHTML = 'ถูกต้อง';
-        showresult.style.color = 'green';
-        score += 1;
-        showscore.innerHTML = score;
-        showanswer.value = '';
-    } else {
-        showresult.innerHTML = 'ไม่ถูกต้อง';
-        showresult.style.color = 'red';
-        showanswer.value = '';
-    }
-    kor += 1;
-    random();
-}
-
-function checkmark() {
-    if (showmark.innerHTML == "+") {
-        total = number1 + number2;
-    } else if (showmark.innerHTML == "-") {
-        total = number1 - number2;
-    } else if (showmark.innerHTML == "×") {
-        total = number1 * number2;
-    } else if (showmark.innerHTML == "÷") {
-        total = number1 / number2;
-    }
-}
-
-function radiomark(value) {
-    showmark.innerHTML = value;
-}
-
-random();
-</script>
+<script src="java.js"></script>
